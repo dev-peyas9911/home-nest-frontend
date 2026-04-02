@@ -6,13 +6,13 @@ const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   // Mock Auth State - Replace this with your Firebase Auth Context
-  const user = {
-    displayName: "John Doe",
-    email: "john@example.com",
-    photoURL: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
-  };
+  // const user = {
+  //   displayName: "John Doe",
+  //   email: "john@example.com",
+  //   photoURL: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
+  // };
 
-  // const user = null;
+  const user = null;
 
   // Updated styles to include dark mode colors
   const activeLink =
