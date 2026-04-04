@@ -1,24 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const { loginUserFunc } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || '/'
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    loginUserFunc(email, password)
+      .then((res) => {
+        console.log(res.user);
+        navigate(from);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-90 bg-white p-8 rounded-2xl shadow-md">
         {/* Heading */}
         <h1 className="text-2xl font-bold text-gray-900">WELCOME BACK</h1>
         <p className="text-gray-500 text-sm mt-2 mb-6">
-           Please enter your details for log in.
+          Please enter your details for log in.
         </p>
 
         {/* Form */}
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           {/* Email */}
           <div>
             <label className="text-sm text-gray-700">Email</label>
             <input
               type="email"
+              {...register("email", { required: true })}
               placeholder="Enter your email"
               className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
             />
@@ -29,6 +54,7 @@ const Login = () => {
             <label className="text-sm text-gray-700">Password</label>
             <input
               type="password"
+              {...register("password", { required: true })}
               placeholder="**********"
               className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
             />
@@ -66,7 +92,10 @@ const Login = () => {
         {/* Footer */}
         <p className="text-center text-sm text-gray-500 mt-4">
           Don’t have an account?{" "}
-          <Link to={'/signup'} className="text-red-500 font-medium cursor-pointer">
+          <Link
+            to={"/signup"}
+            className="text-red-500 font-medium cursor-pointer"
+          >
             Sign up for free!
           </Link>
         </p>

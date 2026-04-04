@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const { signOutUserFunc, user } = useContext(AuthContext);
+  const handleLogOut = () => {
+    signOutUserFunc()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // const {user} = useContext(AuthContext);
 
   // Mock Auth State - Replace this with your Firebase Auth Context
   // const user = {
@@ -12,7 +22,7 @@ const Navbar = () => {
   //   photoURL: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
   // };
 
-  const user = null;
+  // const user = null;
 
   // Updated styles to include dark mode colors
   const activeLink =
@@ -121,7 +131,7 @@ const Navbar = () => {
                       </p>
                     </div>
                     <button
-                      onClick={() => console.log("Logout Logic Here")}
+                      onClick={handleLogOut}
                       className="w-full text-left px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition"
                     >
                       Log out
@@ -214,7 +224,8 @@ const Navbar = () => {
             <div className="flex flex-col space-y-2 pt-4">
               <Link
                 to="/login"
-                className="text-center py-2 border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-lg"
+                className="text-center py-2 border border-blue-600 dark:border-blue-400 text-blue-600
+                 dark:text-blue-400 rounded-lg"
               >
                 Login
               </Link>
