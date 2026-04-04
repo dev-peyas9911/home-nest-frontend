@@ -85,16 +85,14 @@ const Navbar = () => {
                 >
                   My Ratings
                 </NavLink>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
-                >
-                  Contact
-                </NavLink>
               </>
             )}
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => (isActive ? activeLink : normalLink)}
+            >
+              Contact
+            </NavLink>
           </div>
 
           {/* Right: Auth / Profile */}

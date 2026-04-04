@@ -69,7 +69,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-10">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 py-10">
       <div className="w-90 bg-white p-8 rounded-2xl shadow-md">
         {/* Heading */}
         <h1 className="text-2xl font-bold text-gray-900">New Here?</h1>
@@ -86,7 +86,7 @@ const Signup = () => {
               type="text"
               {...register("name", { required: true })}
               placeholder="Enter your name"
-              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           {/* Photo */}
@@ -96,7 +96,7 @@ const Signup = () => {
               type="file"
               {...register("photo", { required: true })}
               placeholder="Choose your photo"
-              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           {/* Email */}
@@ -106,7 +106,7 @@ const Signup = () => {
               type="email"
               {...register("email", { required: true })}
               placeholder="Enter your email"
-              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -117,7 +117,7 @@ const Signup = () => {
               type="password"
               {...register("password", { required: true })}
               placeholder="**********"
-              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -136,7 +136,7 @@ const Signup = () => {
           {/* Sign up Button */}
           <button
             type="submit"
-            className="mt-4 bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-medium transition"
+            className="mt-4 bg-blue-900 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition"
           >
             Sign up
           </button>
@@ -159,7 +159,7 @@ const Signup = () => {
           <Link
             to={"/login"}
             state={location.state}
-            className="text-red-500 font-medium cursor-pointer"
+            className="text-blue-500 font-medium cursor-pointer"
           >
             Log in for free!
           </Link>

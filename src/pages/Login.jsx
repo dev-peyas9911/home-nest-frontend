@@ -44,7 +44,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-800 text-white">
       <div className="w-90 bg-white p-8 rounded-2xl shadow-md">
         {/* Heading */}
         <h1 className="text-2xl font-bold text-gray-900">WELCOME BACK</h1>
@@ -61,7 +61,8 @@ const Login = () => {
               type="email"
               {...register("email", { required: true })}
               placeholder="Enter your email"
-              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2
+               focus:ring-blue-400"
             />
           </div>
 
@@ -72,18 +73,19 @@ const Login = () => {
               type="password"
               {...register("password", { required: true })}
               placeholder="**********"
-              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full mt-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2
+               focus:ring-blue-400"
             />
           </div>
 
           {/* Row */}
           <div className="flex items-center justify-between text-sm mt-1">
             <label className="flex items-center gap-2 text-gray-600">
-              <input type="checkbox" className="accent-red-500" />
+              <input type="checkbox" className="accent-blue-500" />
               Remember me
             </label>
 
-            <button type="button" className="text-gray-500 hover:text-red-500">
+            <button type="button" className="text-gray-500 hover:text-blue-500">
               Forgot password
             </button>
           </div>
@@ -91,7 +93,7 @@ const Login = () => {
           {/* Sign In Button */}
           <button
             type="submit"
-            className="mt-4 bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-medium transition"
+            className="mt-4 bg-blue-900 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition"
           >
             Log in
           </button>
@@ -114,7 +116,7 @@ const Login = () => {
           <Link
             to={"/signup"}
             state={location.state}
-            className="text-red-500 font-medium cursor-pointer"
+            className="text-blue-500 font-medium cursor-pointer"
           >
             Sign up for free!
           </Link>
