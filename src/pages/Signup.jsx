@@ -4,9 +4,11 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Signup = () => {
-  const { createUserFunc, updateUserFunc } = useContext(AuthContext);
+  const { createUserFunc, updateUserFunc, googleSigninfunc } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -15,17 +17,17 @@ const Signup = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state || '/'
+  const from = location.state || "/";
 
   const onSubmit = async (data) => {
     const { name, photo, email, password } = data;
-    console.log(photo);
+    // console.log(photo);
 
     // image upload to imagebb
     const imageFile = photo[0];
     const formData = new FormData();
     formData.append("image", imageFile);
-    console.log(formData);
+    // console.log(formData);
 
     try {
       const { data } = await axios.post(
@@ -36,16 +38,34 @@ const Signup = () => {
 
       createUserFunc(email, password)
         .then((res) => {
-          console.log(res.user);
+          // console.log(res.user);
           updateUserFunc(name, imageUrl);
+          toast.success("Sign up Successfully.");
           navigate(from);
         })
-        // .catch((err) => {
-        //   console.log(err);
-        // });
+        .catch((err) => {
+          console.log(err.message);
+          if (err.message == "Firebase: Error (auth/email-already-in-use).") {
+            toast.error(
+              "Account already created with this email. Please login",
+            );
+          }
+        });
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleGoogleSignin = () => {
+    googleSigninfunc()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Sign up Successfully.");
+        navigate(from);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -123,7 +143,10 @@ const Signup = () => {
         </form>
 
         {/* Google Button */}
-        <button className="mt-4 w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition">
+        <button
+          onClick={handleGoogleSignin}
+          className="mt-4 w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition"
+        >
           <FcGoogle size={20} />
           <span className="text-sm font-medium text-gray-700">
             Sign up with Google

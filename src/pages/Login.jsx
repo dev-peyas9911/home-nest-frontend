@@ -3,9 +3,10 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { loginUserFunc } = useContext(AuthContext);
+  const { loginUserFunc, googleSigninfunc } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -14,13 +15,28 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state || '/'
+  const from = location.state || "/";
 
+  // Login functionality
   const onSubmit = (data) => {
     const { email, password } = data;
     loginUserFunc(email, password)
       .then((res) => {
         console.log(res.user);
+        toast.success("Login Successfully.");
+        navigate(from);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // Google signin
+  const handleGoogleSignin = () => {
+    googleSigninfunc()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Login Successfully.");
         navigate(from);
       })
       .catch((err) => {
@@ -82,7 +98,10 @@ const Login = () => {
         </form>
 
         {/* Google Button */}
-        <button className="mt-4 w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition">
+        <button
+          onClick={handleGoogleSignin}
+          className="mt-4 w-full flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition"
+        >
           <FcGoogle size={20} />
           <span className="text-sm font-medium text-gray-700">
             Log in with Google
