@@ -9,6 +9,7 @@ import AddProperty from "../pages/AddProperty";
 import MyProperties from "../pages/MyProperties";
 import MyRatings from "../pages/MyRatings";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../pages/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: 'my-ratings',
                 element: <PrivateRoute><MyRatings></MyRatings></PrivateRoute>
+            },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
             },
             {
                 path: '/login',
