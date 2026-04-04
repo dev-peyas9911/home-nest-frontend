@@ -158,6 +158,7 @@ const Signup = () => {
           Already have an account?{" "}
           <Link
             to={"/login"}
+            state={location.state}
             className="text-red-500 font-medium cursor-pointer"
           >
             Log in for free!

@@ -113,6 +113,7 @@ const Login = () => {
           Don’t have an account?{" "}
           <Link
             to={"/signup"}
+            state={location.state}
             className="text-red-500 font-medium cursor-pointer"
           >
             Sign up for free!
