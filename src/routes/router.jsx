@@ -10,6 +10,7 @@ import MyProperties from "../pages/MyProperties";
 import MyRatings from "../pages/MyRatings";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../pages/Contact";
+import PropertyDetails from "../pages/PropertyDetails";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
             {
                 path: 'all-properties',
                 element: <AllProperties></AllProperties>
+            },
+            {
+                path: 'properties/:id',
+                element: <PropertyDetails></PropertyDetails>
             },
             {
                 path: 'add-property',

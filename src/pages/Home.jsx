@@ -1,6 +1,5 @@
 import React from "react";
 import Hero from "../components/Home/Hero";
-import PropertyCard from "../components/PropertyCard.jsx/PropertyCard";
 import WhyChooseUs from "../components/Home/WhyChooseUs";
 import Categories from "../components/Home/Categories";
 import Highlights from "../components/Home/Highlights";
@@ -10,6 +9,7 @@ import Blogs from "../components/Home/Blogs";
 import Newsletter from "../components/Home/Newsletter";
 import FAQ from "../components/Home/FAQ";
 import CTA from "../components/Home/CTA";
+import FeaturedProperties from "../components/Home/FeaturedProperties";
 
 const Home = () => {
   return (
@@ -17,11 +17,7 @@ const Home = () => {
       {/* Hero section */}
       <Hero></Hero>
       {/* Featured section */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {properties.map((property) => (
-          <PropertyCard key={property._id} property={property} />
-        ))}
-      </div> */}
+      <FeaturedProperties></FeaturedProperties>
       {/* Why Choose Us secion */}
       <WhyChooseUs></WhyChooseUs>
       {/* Categories section */}

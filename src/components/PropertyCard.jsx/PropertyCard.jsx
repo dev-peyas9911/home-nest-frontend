@@ -49,7 +49,7 @@ const PropertyCard = ({ property }) => {
         {/* Action Button - Pushed to bottom */}
         <div className="mt-auto">
           <Link
-            to={`/property/${_id}`}
+            to={`/properties/${_id}`}
             className="block w-full text-center bg-gray-50 dark:bg-gray-700/50 hover:bg-blue-600 dark:hover:bg-blue-600 text-gray-900 dark:text-white hover:text-white dark:hover:text-white font-semibold py-3 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-blue-600 transition-all duration-300"
           >
             View Details
