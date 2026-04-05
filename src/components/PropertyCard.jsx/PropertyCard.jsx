@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaTag } from "react-icons/fa";
 
 const PropertyCard = ({ property }) => {
   // Destructuring property data (Mock or from MongoDB)
-  const { _id, propertyName, category, description, location, price, image } =
+  const { _id, name, category, description, location, price, image } =
     property;
 
   return (
@@ -15,7 +15,7 @@ const PropertyCard = ({ property }) => {
             image ||
             "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000"
           }
-          alt={propertyName}
+          alt={name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute top-4 left-4">
@@ -34,7 +34,7 @@ const PropertyCard = ({ property }) => {
       {/* Content Section */}
       <div className="p-6 flex flex-col grow">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-          {propertyName}
+          {name}
         </h3>
 
         <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm mb-4">

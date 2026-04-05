@@ -52,7 +52,7 @@ const PropertyDetails = () => {
       reviewerName: user.displayName,
       reviewerEmail: user.email,
       propertyId: property._id,
-      propertyName: property.propertyName,
+      propertyName: property.name,
       propertyThumbnail: property.image, // Thumbnail from the property object
       starRating: userRating,
       reviewText: reviewText,
@@ -110,7 +110,7 @@ const PropertyDetails = () => {
               {property.category}
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white">
-              {property.propertyName}
+              {property.name}
             </h1>
           </div>
         </div>
