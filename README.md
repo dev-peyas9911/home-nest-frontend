@@ -1,16 +1,6 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🏠 HomeNest | Premium Real Estate MarketplaceHomeNest is a full-stack real estate application designed to bridge the gap between property owners and seekers. Built with the MERN stack, it offers a seamless, high-performance experience for exploring, listing, and reviewing global properties.🚀 Live URLExplore the marketplace here: https://your-live-site-url.com✨ Key FeaturesDynamic Property Exploration: Browse a curated list of properties including Residential, Commercial, and Land with high-resolution visual previews.Advanced Server-Side Searching: Instant search functionality filtering by Property Name directly from the MongoDB database for maximum speed.Multi-Criteria Sorting: Sort properties by price (Low to High / High to Low) and "Newest First" using optimized backend query logic.Interactive Dark/Light Mode: A fully responsive theme-switching experience powered by Tailwind CSS data-attributes and local storage persistence.Comprehensive User Dashboard: Dedicated "My Properties" and "My Reviews" sections for users to manage their listings and feedback history.Dashing Scroll Animations: High-end, smooth UI reveals powered by AOS (Animate On Scroll) with staggered delays for a premium feel.One-Click Demo Access: Integrated "Demo User" and "Demo Admin" buttons for instant, credential-free exploration of private routes.Social Proof & Reviews: A dedicated review system allowing users to leave star ratings and feedback, displayed dynamically on property detail pages.Robust Form Validation: Secure property listing forms with real-time feedback and automatic data-type conversion (e.g., Price as Number).Intelligent 404 Error Handling: A custom "Lost in the Neighborhood" 404 page with smart navigation to guide users back home.Mobile-First Responsive Design: A fluid layout that scales perfectly from 4K monitors down to the smallest mobile devices.🛠️ Tech StackFrontend:React.js (Vite)Tailwind CSS (Styling & Dark Mode)Axios (API Communication)React Router (Navigation)AOS (Animations)React IconsBackend:Node.js & ExpressMongoDB (Database)Firebase Auth (Authentication)📸 ScreenshotsLight ModeDark Mode⚙️ Installation & SetupClone the repository:Bashgit clone https://github.com/your-username/homenest-client.git
+Install dependencies:Bashnpm install
+Set up Environment Variables:Create a .env file in the root directory:Code snippetVITE_API_URL=http://localhost:3000
+VITE_FIREBASE_API_KEY=your_key
+Run the development server:Bashnpm run dev
+🤝 ContactYour Name Your Portfolio | LinkedIn | Email
