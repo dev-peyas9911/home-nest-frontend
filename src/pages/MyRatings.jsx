@@ -8,6 +8,7 @@ import {
   FaQuoteLeft,
 } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 const MyRatings = () => {
   const [reviews, setReviews] = useState([]);
@@ -22,7 +23,7 @@ const {user} = useContext(AuthContext)
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:3000/reviews?email=${user.email}`,
+          `${import.meta.env.VITE_API_URL}/reviews?email=${user.email}`,
         );
         setReviews(response.data);
       } catch (err) {
@@ -35,13 +36,13 @@ const {user} = useContext(AuthContext)
     if (user?.email) fetchMyReviews();
   }, [user.email]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <FaSpinner className="animate-spin text-4xl text-blue-600" />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <FaSpinner className="animate-spin text-4xl text-blue-600" />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 transition-colors duration-300">
@@ -57,7 +58,7 @@ const {user} = useContext(AuthContext)
         </div>
 
         {/* Reviews Grid */}
-        {reviews.length > 0 ? (
+        {loading ? <LoadingSpinner></LoadingSpinner> : reviews.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review) => (
               <div

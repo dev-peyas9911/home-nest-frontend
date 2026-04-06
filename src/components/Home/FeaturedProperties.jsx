@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router";
 import { FaArrowRight, FaSpinner } from "react-icons/fa";
 import PropertyCard from "../PropertyCard.jsx/PropertyCard";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const FeaturedProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -13,7 +14,7 @@ const FeaturedProperties = () => {
       try {
         // Calling our specific "featured" endpoint
         const response = await axios.get(
-          "http://localhost:3000/featured-properties",
+          `${import.meta.env.VITE_API_URL}/featured-properties`,
         );
         setProperties(response.data);
       } catch (err) {
@@ -25,13 +26,13 @@ const FeaturedProperties = () => {
     fetchFeatured();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center py-20">
-        <FaSpinner className="animate-spin text-4xl text-blue-600" />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="flex justify-center py-20">
+  //       <FaSpinner className="animate-spin text-4xl text-blue-600" />
+  //     </div>
+  //   );
+  // }
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -56,11 +57,17 @@ const FeaturedProperties = () => {
         </div>
 
         {/* Grid Displaying exactly 6 (or fewer if DB is small) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
-            <PropertyCard key={property._id} property={property} />
+        {loading ? <LoadingSpinner></LoadingSpinner> : <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {properties.map((property, index) => (
+            <div key={property._id}
+    data-aos="fade-up"
+    // This makes card 1 appear at 0ms, card 2 at 150ms, card 3 at 300ms...
+    data-aos-delay={index * 150} 
+    className="dashing-card">
+              <PropertyCard key={property._id} property={property} />
+            </div>
           ))}
-        </div>
+        </div>}
 
         {/* Optional: Centered CTA if you have no header link */}
         <div className="mt-16 text-center">

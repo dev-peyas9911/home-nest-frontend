@@ -29,7 +29,7 @@ const PropertyDetails = () => {
     const fetchDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/properties/${id}`,
+          `${import.meta.env.VITE_API_URL}/properties/${id}`,
         );
         setProperty(response.data);
       } catch (err) {
@@ -61,7 +61,7 @@ const PropertyDetails = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/reviews",
+        `${import.meta.env.VITE_API_URL}/reviews`,
         reviewData,
       );
 

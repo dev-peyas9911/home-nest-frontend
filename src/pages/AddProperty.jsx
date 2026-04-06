@@ -83,7 +83,7 @@ const AddProperty = () => {
         >
           {/* Property Name */}
           <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">
               Property Name
             </label>
             <div className="flex items-center border rounded-lg px-3">
@@ -94,7 +94,7 @@ const AddProperty = () => {
                 placeholder="Enter property name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-2 outline-none bg-transparent "
+                className="w-full p-2 outline-none bg-transparent text-gray-600 dark:text-gray-400"
                 required
               />
             </div>
@@ -102,7 +102,7 @@ const AddProperty = () => {
 
           {/* Description */}
           <div>
-            <label className="block mb-1 text-sm font-medium">
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">
               Description
             </label>
             <textarea
@@ -110,7 +110,7 @@ const AddProperty = () => {
               placeholder="Enter description"
               value={formData.description}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg outline-none bg-transparent"
+              className="w-full p-2 border rounded-lg outline-none bg-transparent text-gray-600 dark:text-gray-400"
               rows="3"
               required
             />
@@ -118,12 +118,12 @@ const AddProperty = () => {
 
           {/* Category */}
           <div>
-            <label className="block mb-1 text-sm font-medium">Category</label>
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">Category</label>
             <select
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg outline-none bg-transparent"
+              className="w-full p-2 border rounded-lg outline-none bg-transparent text-gray-600 dark:text-gray-400"
             >
               <option>Rent</option>
               <option>Sale</option>
@@ -134,7 +134,7 @@ const AddProperty = () => {
 
           {/* Price */}
           <div>
-            <label className="block mb-1 text-sm font-medium">Price</label>
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">Price</label>
             <div className="flex items-center border rounded-lg px-3">
               <FaDollarSign className="text-gray-400" />
               <input
@@ -143,7 +143,7 @@ const AddProperty = () => {
                 placeholder="Enter price"
                 value={formData.price}
                 onChange={handleChange}
-                className="w-full p-2 outline-none bg-transparent"
+                className="w-full p-2 outline-none bg-transparent text-gray-600 dark:text-gray-400"
                 required
               />
             </div>
@@ -151,7 +151,7 @@ const AddProperty = () => {
 
           {/* Location */}
           <div>
-            <label className="block mb-1 text-sm font-medium">Location</label>
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">Location</label>
             <div className="flex items-center border rounded-lg px-3">
               <FaMapMarkerAlt className="text-gray-400" />
               <input
@@ -160,7 +160,7 @@ const AddProperty = () => {
                 placeholder="City, area or address"
                 value={formData.location}
                 onChange={handleChange}
-                className="w-full p-2 outline-none bg-transparent"
+                className="w-full p-2 outline-none bg-transparent text-gray-600 dark:text-gray-400"
                 required
               />
             </div>
@@ -168,7 +168,7 @@ const AddProperty = () => {
 
           {/* Image Link */}
           <div>
-            <label className="block mb-1 text-sm font-medium">Image URL</label>
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">Image URL</label>
             <div className="flex items-center border rounded-lg px-3">
               <FaImage className="text-gray-400" />
               <input
@@ -177,7 +177,7 @@ const AddProperty = () => {
                 placeholder="Paste image link"
                 value={formData.image}
                 onChange={handleChange}
-                className="w-full p-2 outline-none bg-transparent"
+                className="w-full p-2 outline-none bg-transparent text-gray-600 dark:text-gray-400"
                 required
               />
             </div>
@@ -186,7 +186,7 @@ const AddProperty = () => {
           {/* User Info */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block mb-1 text-sm font-medium">
+              <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">
                 User Name
               </label>
               <div className="flex items-center border rounded-lg px-3 bg-gray-100 dark:bg-gray-700">
@@ -201,7 +201,7 @@ const AddProperty = () => {
             </div>
 
             <div>
-              <label className="block mb-1 text-sm font-medium">
+              <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-100">
                 User Email
               </label>
               <div className="flex items-center border rounded-lg px-3 bg-gray-100 dark:bg-gray-700">

@@ -6,3 +6,25 @@
 body{
     font-family: "Roboto", sans-serif;
 }
+
+/* Add this to your Global CSS */
+.dashing-card {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dashing-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 
+              0 18px 36px -18px rgba(0, 0, 0, 0.3);
+}
+
+/* For images inside cards */
+.inner-zoom {
+  overflow: hidden;
+}
+.inner-zoom img {
+  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.dashing-card:hover .inner-zoom img {
+  transform: scale(1.15);
+}

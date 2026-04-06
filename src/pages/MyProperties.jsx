@@ -14,6 +14,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 const MyProperties = () => {
   const { user } = useContext(AuthContext);
@@ -30,7 +31,7 @@ const MyProperties = () => {
         setLoading(true);
         // Passing the email as a query parameter
         const response = await axios.get(
-          `http://localhost:3000/my-properties?email=${user.email}`,
+          `${import.meta.env.VITE_API_URL}/my-properties?email=${user.email}`,
         );
         setMyProperties(response.data);
       } catch (err) {
@@ -65,7 +66,7 @@ const MyProperties = () => {
 
     try {
       const res = await axios.patch(
-        `http://localhost:3000/properties/${selectedProperty._id}`,
+        `${import.meta.env.VITE_API_URL}/properties/${selectedProperty._id}`,
         updatedData,
       );
 
@@ -97,7 +98,7 @@ const MyProperties = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.delete(`http://localhost:3000/properties/${id}`);
+          const res = await axios.delete(`${import.meta.env.VITE_API_URL}/properties/${id}`);
           
           if (res.data.deletedCount > 0) {
             // --- INSTANT UI UPDATE ---
@@ -121,13 +122,14 @@ const MyProperties = () => {
     });
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <FaSpinner className="animate-spin text-4xl text-blue-600" />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     // <div className="min-h-screen flex items-center justify-center">
+  //     //   <FaSpinner className="animate-spin text-4xl text-blue-600" />
+  //     // </div>
+  //     <LoadingSpinner></LoadingSpinner>
+  //   );
+  // }
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,7 +152,9 @@ const MyProperties = () => {
         </div>
 
         {/* Properties Grid */}
-        {myProperties.length > 0 ? (
+        {
+          loading ? <LoadingSpinner></LoadingSpinner> : 
+          myProperties.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {myProperties.map((prop) => (
               <div
@@ -356,7 +360,8 @@ const MyProperties = () => {
               You haven't listed any properties yet.
             </p>
           </div>
-        )}
+        )
+        }
       </div>
     </div>
   );

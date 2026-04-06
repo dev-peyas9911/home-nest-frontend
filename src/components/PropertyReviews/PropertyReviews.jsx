@@ -15,7 +15,7 @@ const PropertyReviews = ({ propertyId }) => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/reviews/${propertyId}`,
+          `${import.meta.env.VITE_API_URL}/reviews/${propertyId}`,
         );
         setReviews(response.data);
       } catch (err) {

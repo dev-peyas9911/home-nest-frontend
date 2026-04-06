@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaSpinner, FaHome, FaSearch, FaSortAmountDown } from "react-icons/fa";
 import PropertyCard from "../components/PropertyCard.jsx/PropertyCard";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 const AllProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -17,7 +18,7 @@ const AllProperties = () => {
         setLoading(true);
         // Ensure this matches your backend port (usually 5000 or 3000)
         const response = await axios.get(
-          `http://localhost:3000/properties?search=${search}&sort=${sort}`,
+          `${import.meta.env.VITE_API_URL}/properties?search=${search}&sort=${sort}`,
         );
         setProperties(response.data);
       } catch (err) {
@@ -97,9 +98,10 @@ const AllProperties = () => {
 
         {/* Results Section */}
         {loading ? (
-          <div className="flex justify-center py-20">
-            <FaSpinner className="animate-spin text-4xl text-blue-600" />
-          </div>
+          // <div className="flex justify-center py-20">
+          //   <FaSpinner className="animate-spin text-4xl text-blue-600" />
+          // </div>
+          <LoadingSpinner></LoadingSpinner>
         ) : properties.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {properties.map((prop) => (
