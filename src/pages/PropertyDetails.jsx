@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import PropertyReviews from "../components/PropertyReviews/PropertyReviews";
 
 const PropertyDetails = () => {
     const {user} = useContext(AuthContext);
@@ -160,6 +161,9 @@ const PropertyDetails = () => {
               {property.description}
             </p>
           </div>
+
+          {/* Reviews */}
+          <PropertyReviews propertyId={property._id}></PropertyReviews>
 
           {/* 3. Ratings & Reviews Section */}
           <div
