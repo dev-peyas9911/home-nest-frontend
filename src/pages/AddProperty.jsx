@@ -31,6 +31,7 @@ const AddProperty = () => {
 
     const newProperty = {
       ...formData,
+      price: Number(formData.price), // This is the key change!
       userName: user.displayName,
       userEmail: user.email,
       createdAt: new Date().toISOString(),
@@ -47,7 +48,15 @@ const AddProperty = () => {
 
       if (response.status === 201 || response.status === 200) {
         toast.success("Property Added Successfully!");
-        e.target.reset(); // Reset the form
+        // Reset the form
+        setFormData({
+          name: "",
+          description: "",
+          category: "Rent",
+          price: "",
+          location: "",
+          image: "",
+        });
       }
     } catch (error) {
       console.error("Error adding property:", error);

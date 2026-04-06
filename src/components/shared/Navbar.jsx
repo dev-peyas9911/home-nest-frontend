@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
+import ThemeToggle from "../Theme/ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,10 +39,11 @@ const Navbar = () => {
           <div className="shrink-0 flex items-center">
             <Link
               to="/"
-              className="text-2xl font-extrabold text-blue-700 dark:text-blue-500 tracking-tight"
+              className="text-2xl font-extrabold text-blue-700 dark:text-blue-500 tracking-tight mr-3"
             >
               Home<span className="text-gray-800 dark:text-gray-100">Nest</span>
             </Link>
+            <ThemeToggle></ThemeToggle>
           </div>
 
           {/* Middle: Navigation Links (Desktop) */}

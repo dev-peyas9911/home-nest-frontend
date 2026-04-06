@@ -11,11 +11,15 @@ import MyRatings from "../pages/MyRatings";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../pages/Contact";
 import PropertyDetails from "../pages/PropertyDetails";
+import NotFound from "../pages/NotFound";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <RootLayout></RootLayout>,
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
+        errorElement: <NotFound></NotFound>,
         children: [
             {
                 index: true,

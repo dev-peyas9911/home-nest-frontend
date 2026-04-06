@@ -13,6 +13,7 @@ import {
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const MyProperties = () => {
   const { user } = useContext(AuthContext);
@@ -69,14 +70,14 @@ const MyProperties = () => {
       );
 
       if (res.data.modifiedCount > 0) {
-        alert("Property Updated Successfully!");
+        toast.success("Property Updated Successfully!");
         setIsModalOpen(false);
         // Navigate to details page to see changes immediately
         navigate(`/properties/${selectedProperty._id}`);
       }
     } catch (err) {
       console.error(err);
-      alert("Failed to update property.");
+      toast.error("Failed to update property.");
     } finally {
       setUpdating(false);
     }
