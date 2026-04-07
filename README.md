@@ -2,7 +2,7 @@
 
 ## 🌐 Live Site
 
-👉 https://your-live-site-link.com
+👉 https://home-nest-frontend.netlify.app
 
 ---
 
@@ -81,7 +81,7 @@ JWT_SECRET=your_secret
 ### 1️⃣ Clone the repository
 
 ```
-git clone https://github.com/your-username/homenest.git
+git clone https://github.com/dev-peyas9911/home-nest-backend.git
 cd homenest
 ```
 
