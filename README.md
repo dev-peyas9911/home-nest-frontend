@@ -1,6 +1,130 @@
-🏠 HomeNest | Premium Real Estate MarketplaceHomeNest is a full-stack real estate application designed to bridge the gap between property owners and seekers. Built with the MERN stack, it offers a seamless, high-performance experience for exploring, listing, and reviewing global properties.🚀 Live URLExplore the marketplace here: https://your-live-site-url.com✨ Key FeaturesDynamic Property Exploration: Browse a curated list of properties including Residential, Commercial, and Land with high-resolution visual previews.Advanced Server-Side Searching: Instant search functionality filtering by Property Name directly from the MongoDB database for maximum speed.Multi-Criteria Sorting: Sort properties by price (Low to High / High to Low) and "Newest First" using optimized backend query logic.Interactive Dark/Light Mode: A fully responsive theme-switching experience powered by Tailwind CSS data-attributes and local storage persistence.Comprehensive User Dashboard: Dedicated "My Properties" and "My Reviews" sections for users to manage their listings and feedback history.Dashing Scroll Animations: High-end, smooth UI reveals powered by AOS (Animate On Scroll) with staggered delays for a premium feel.One-Click Demo Access: Integrated "Demo User" and "Demo Admin" buttons for instant, credential-free exploration of private routes.Social Proof & Reviews: A dedicated review system allowing users to leave star ratings and feedback, displayed dynamically on property detail pages.Robust Form Validation: Secure property listing forms with real-time feedback and automatic data-type conversion (e.g., Price as Number).Intelligent 404 Error Handling: A custom "Lost in the Neighborhood" 404 page with smart navigation to guide users back home.Mobile-First Responsive Design: A fluid layout that scales perfectly from 4K monitors down to the smallest mobile devices.🛠️ Tech StackFrontend:React.js (Vite)Tailwind CSS (Styling & Dark Mode)Axios (API Communication)React Router (Navigation)AOS (Animations)React IconsBackend:Node.js & ExpressMongoDB (Database)Firebase Auth (Authentication)📸 ScreenshotsLight ModeDark Mode⚙️ Installation & SetupClone the repository:Bashgit clone https://github.com/your-username/homenest-client.git
-Install dependencies:Bashnpm install
-Set up Environment Variables:Create a .env file in the root directory:Code snippetVITE_API_URL=http://localhost:3000
+# 🏡 HomeNest - Real Estate Listing Platform
+
+## 🌐 Live Site
+
+👉 https://your-live-site-link.com
+
+---
+
+## 📌 Project Overview
+
+**HomeNest** is a full-stack MERN real estate listing platform where property owners can post rental or sale listings, and users can explore, search, filter, and review properties efficiently.
+
+---
+
+## 🚀 Key Features
+
+* 🔐 **Authentication System** (Email/Password + Google Login)
+* 🏠 **Add Property** functionality for logged-in users
+* 📋 **My Properties Dashboard** to manage personal listings
+* ✏️ **Update & Delete Property** with real-time UI updates
+* 🔎 **Search Functionality** (search by property name)
+* 🔽 **Backend Sorting** (by price, date, etc.)
+* 🌟 **Ratings & Reviews System** (1–5 star rating with feedback)
+* 📊 **Featured Properties Section** (latest listings from database)
+* 🧭 **Protected Routes** for secure user access
+* 🌗 **Light/Dark Mode Toggle**
+* 📱 **Fully Responsive Design** (Mobile, Tablet, Desktop)
+* ⚡ **Loading Spinner & Toast Alerts** for better UX
+* ❌ **Custom 404 Page** for invalid routes
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React (Vite)
+* Tailwind CSS
+* React Router
+* Firebase Authentication
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+
+---
+
+## 📂 Project Structure
+
+```
+HomeNest/
+├── client/   # Frontend (React)
+└── server/   # Backend (Express + MongoDB)
+```
+
+---
+
+## 🔑 Environment Variables
+
+### Client (.env)
+
+```
+VITE_API_URL=your_backend_api
 VITE_FIREBASE_API_KEY=your_key
-Run the development server:Bashnpm run dev
-🤝 ContactYour Name Your Portfolio | LinkedIn | Email
+```
+
+### Server (.env)
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/your-username/homenest.git
+cd homenest
+```
+
+### 2️⃣ Install dependencies
+
+```
+cd client
+npm install
+
+cd ../server
+npm install
+```
+
+### 3️⃣ Run the project
+
+```
+# Run backend
+cd server
+npm run dev
+
+# Run frontend
+cd client
+npm run dev
+```
+
+---
+
+## 📈 Future Improvements
+
+* 🧠 Smart property recommendations
+* 💬 Real-time chat between buyers & sellers
+* 🗺️ Map integration (location-based search)
+* 📩 Email notifications
+
+---
+
+## 👨‍💻 Author
+
+**Peyas Barmon**
+Frontend Developer
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
